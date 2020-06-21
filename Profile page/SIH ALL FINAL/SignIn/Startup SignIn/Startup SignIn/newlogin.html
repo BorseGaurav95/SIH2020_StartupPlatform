@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Startup Sign</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="style.css">
+
+
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-database.js"></script>
+  
+  
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+    apiKey: "AIzaSyCaDuQs2-vRJ6F3YwjJhizx1GltmknXF1w",
+    authDomain: "webproject-95100.firebaseapp.com",
+    databaseURL: "https://webproject-95100.firebaseio.com",
+    projectId: "webproject-95100",
+    storageBucket: "webproject-95100.appspot.com",
+    messagingSenderId: "323873543402",
+    appId: "1:323873543402:web:6d067d32c6db1fa94c3393"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+
+
+
+</head>
+<body>
+  <div class="container">
+    <h1 class="brand"><span>STARTUP </span>LOGIN</h1>
+    <div class="wrapper">
+      <div class="company-info">
+       
+        <img src="abc.jfif">
+      </div>
+      <div class="contact">
+        <div class="alert">Your message has been sent</div>
+        <form id="contactForm">
+          
+            
+            <p class="full">
+            <label>Username</label>
+            <input type="text" name="username" id="username" required>
+          </p >
+             <p class="full">
+            <label>Password</label>
+            <input type="password" name="password" id="password" required>
+          
+          </p>
+            <p class="full">
+              <input type="submit" id="submitButton" value="Sign up" onclick="retriveData();">
+          </p>
+        </form>
+          
+          <div class="text-center w-full p-t-25 p-b-230">
+						
+                        <p></p>
+                        <a href="Startup Register/StartupReg.html" class="txt1">
+							            Create new account
+							<i class="fa fa-long-arrow-right"></i>						
+						</a>
+					</div>
+      </div>
+        
+    </div>
+      
+  </div>
+  <script>
+		
+    function retriveData()
+    {				
+      var database = firebase.database();
+      
+      var ref = database.ref('StartupRegistration');
+      ref.on('value',getData, errorData);
+    }
+    
+    function getData(data){
+      //console.log(data.val());
+      
+      // all keys
+      // User data
+      var inputUsername = document.getElementById("username").value;
+      var inputPassword = document.getElementById("password").value;
+
+      //firebase data
+      var StartupRegistration = data.val();
+      var keys = Object.keys(StartupRegistration);
+      console.log(keys );
+      
+      
+      var correctUser = 0;
+      for (var i=0;i<keys.length;i++){
+        var k = keys[i];
+        var mobile = StartupRegistration[k].mobile;
+        var password = StartupRegistration[k].password;
+        console.log(mobile ,password );
+        if(inputUsername==mobile && inputPassword==password ){
+          correctUser = 1;
+          localStorage["userIndexRef"]=k;
+          break;
+        }
+      }
+      
+      if (correctUser == 1){
+        alert("Login successful");
+        location.href = "../../Profile/Startup Profile/startupProfile.html";
+      }
+      else{
+        alert("Login failed");
+      }
+    }
+    function errorData(err){
+      console.log('ERROR!');
+      console.log(err);
+    }
+  
+  
+  </script>  
+</body>
+</html>

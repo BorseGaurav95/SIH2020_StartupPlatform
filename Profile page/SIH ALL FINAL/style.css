@@ -1,0 +1,35 @@
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+.bg-light1 {
+    background-color:whitesmoke;
+}
+a{
+    color: black;
+}
+.cn-ftr{
+    background-color: grey;
+    padding:45px 0;
+    color: white; 
+}
+.ftr-des{
+    padding:30px 0;
+}
+.jumbotron{
+    
+    background-image: url(images/8.jpg);
+    background-size: cover;
+}
+.expert-heading{
+    color: white;
+    margin-left: 300px;
+}
+.startup-heading{
+    
+    color :white;
+    margin-left: 330px;
+    
+}
+.jheight{
+    height: 400px;
+}

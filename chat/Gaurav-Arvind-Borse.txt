@@ -1,0 +1,67 @@
+---------------------------
+GAURAV BORSE
+---------------------------
+Email: gauravborse260@gmail.com
+Address: PCCOE Boys Hostel ,NearAkurdi Railway Station Road, Nigadi Rd, Sector No. 26, Pradhikaran, Nigdi, Pimpri-Chinchwad, Maharashtra 411044
+Phone: +919423288162
+
+
+// OBJECTIVE //
+
+To work in a learning and challenging environment , utilizing my skill and knowledge to be the best of abilities and contribute positively to my personal growth as well as the growth of the organization.
+
+
+// EDUCATION //
+
+SSC(X th)
+Jai Hind High School
+Dhule 2015
+
+HSC(XII th)
+Z.B.Patil College
+Dhule 2017
+
+Pursuing BE Computer Engineering 
+Pimpri Chinchwad College Of Engineering
+Pune 2021
+
+
+// SKILLS //
+
+· Ability work under pressure and under deadlines.
+· Good team player
+· Self-motivated and hardworking.
+· Quick learner
+
+
+// LANGUAGES //
+
+· English: Basic
+· Hindi
+· Marathi
+
+// COMPUTER PROFICIENCY //
+C++
+
+
+// PROJECTS //
+
+·Banking Management System with a user interface using the QT creator and Linked List.It would create the user account, credit and debit money in an account.
+
+· Java Swing-based Library management system for our college in which three libraries can connect with a single centralized database. It would create an account of the user, issued book, return the book, track book issued by the user, user authorization and show available books in library software easier for user-specific needs.
+
+· Diabetes prediction web portal using KNN and flask.Â Â 
+
+· Mentorship portal for a startup in which startup gets an online mentorship.
+
+
+// ACHIEVEMENTS //
+
+· Selected for the internal hackathon SIH2020
+
+· 
+
+
+// CERTIFICATIONS & COURSES //
+
+·

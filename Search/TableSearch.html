@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+
+  
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-database.js"></script>
+		
+		
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+			 https://firebase.google.com/docs/web/setup#available-libraries -->
+
+		<script>
+		  // Your web app's Firebase configuration
+		  var firebaseConfig = {
+			apiKey: "AIzaSyCaDuQs2-vRJ6F3YwjJhizx1GltmknXF1w",
+			authDomain: "webproject-95100.firebaseapp.com",
+			databaseURL: "https://webproject-95100.firebaseio.com",
+			projectId: "webproject-95100",
+			storageBucket: "webproject-95100.appspot.com",
+			messagingSenderId: "323873543402",
+			appId: "1:323873543402:web:6d067d32c6db1fa94c3393"
+		  };
+		  // Initialize Firebase
+		  firebase.initializeApp(firebaseConfig);
+		</script>
+
+
+</script>
+
+
+
+
+</head>
+<body>
+
+<h2>Mentor Search</h2>
+ 
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for mentor names/domain..">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:60%;">Name</th>
+    <th style="width:40%;">Domain</th>
+  </tr>
+
+  <tr>
+    <td id="i1"><a href="#" id='a1'> <label id="1"></label> </a>  </td>
+    <td><label id="11"></label></td>
+  </tr>
+  
+
+  <tr>
+    <td><label id="2"></label></td>
+    <td><label id="12"></label></td>
+  </tr>
+  
+ 
+  <tr>
+    <td><label id="3"></label></td>
+    <td><label id="13"></label></td>
+  </tr>
+  
+
+  <tr>
+    <td><label id="4"></label></td>
+    <td><label id="14"></label></td>
+  </tr>
+  
+
+  <tr>
+    <td><label id="5"></label></td>
+    <td><label id="15"></label></td>
+  </tr>
+  
+
+  <tr>
+    <td><label id="6"></label></td>
+    <td><label id="16"></label></td>
+  </tr>
+  
+  
+  <tr>
+    <td><label id="7"></label></td>
+    <td><label id="17"></label></td>
+  </tr>
+  
+  
+  <tr>
+    <td><label id="8"></label></td>
+    <td><label id="18"></label></td>
+  </tr>
+  
+  
+  <tr>
+    <td><label id="9"></label></td>
+    <td><label id="19"></label></td>
+  </tr>
+  
+
+  
+</table>
+
+<script>
+retriveData();
+var ct1=new Array(1,2,3,4,5,6,7,8,9);
+var ct2=new Array(11,12,13,14,15,16,17,18,19);
+//var count1=["name1","name2","name3"];
+//var count2=["area1","area2","area3"];
+var phone=[];
+var nameA=[];
+var areaA=[];
+function retriveData()
+			{				
+				var database = firebase.database();
+				
+				var ref = database.ref('/Expert/');
+				ref.on('value',getData, errorData);
+			}
+			
+			function getData(data){
+				//console.log(data.val());
+				
+				// all keys
+				// User data
+				
+				//firebase data
+				var ExpertRegistration = data.val();
+				var keys = Object.keys(ExpertRegistration);
+				console.log(keys);
+				
+	
+				
+				for (var i=0;i<keys.length;i++){
+          var k = keys[i];
+          var mobile=ExpertRegistration[k].mobile;
+					var name = ExpertRegistration[k].name;
+					var area = ExpertRegistration[k].area;
+          console.log(name+" "+area);
+        
+          phone.push(mobile);
+          nameA.push(name);
+          areaA.push(area);
+          
+				}
+        for(var i=0;i<keys.length;i++){
+       document.getElementById(ct1[i]).innerHTML=nameA[i];  
+       document.getElementById(ct2[i]).innerHTML=areaA[i];
+       
+        }
+
+			}
+			function errorData(err){
+				console.log('ERROR!');
+				console.log(err);
+			}
+		
+
+      
+function myFunction() {
+  
+  
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+    
+  for (i = 0; i < tr.length; i++) {
+    td1 = tr[i].getElementsByTagName("td")[0];
+    td2 = tr[i].getElementsByTagName("td")[1];
+    if (td1||td2) {
+      txtValue1 = td1.textContent || td1.innerText;
+      txtValue2 = td2.textContent || td2.innerText;
+      if (txtValue1.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1 ) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+ $('td').click(function(){
+      alert("You clicked : ",+$(this).data("id"));
+
+   });
+
+
+
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

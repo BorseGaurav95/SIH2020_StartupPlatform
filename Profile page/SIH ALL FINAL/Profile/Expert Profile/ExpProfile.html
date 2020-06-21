@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-database.js"></script>
+		
+		
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+			 https://firebase.google.com/docs/web/setup#available-libraries -->
+
+		<script>
+		  // Your web app's Firebase configuration
+		  var firebaseConfig = {
+			apiKey: "AIzaSyCaDuQs2-vRJ6F3YwjJhizx1GltmknXF1w",
+			authDomain: "webproject-95100.firebaseapp.com",
+			databaseURL: "https://webproject-95100.firebaseio.com",
+			projectId: "webproject-95100",
+			storageBucket: "webproject-95100.appspot.com",
+			messagingSenderId: "323873543402",
+			appId: "1:323873543402:web:6d067d32c6db1fa94c3393"
+		  };
+		  // Initialize Firebase
+		  firebase.initializeApp(firebaseConfig);
+		</script>
+
+    
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:black;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+img{
+border-radius: 50%    
+}
+form{
+    margin: 15px;
+    }
+    
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidenav">
+  <img src="abc.png">
+  <a href="#">Profile Info</a>
+  <a href="#">Scheduling</a>
+  <a href="#">Messaging</a>
+  <a href="#">Events</a>
+</div>
+
+<div class="main">
+  <h2 style="color: black">Expert Profile Info</h2>
+   <div id="mpage" class="contact">
+       <div>
+           
+       </div>
+        <h3>PROFESSIONAL DETAILS</h3>
+        <form id="contactForm">
+        <p>
+         <label><b>Name</b></label>
+          <label name="name" id="name" >Name</label>
+        </p>
+            <p>
+            <label><b>Email</b></label>
+            <label name="email" id="email" >mentor@gmail.com</label> 
+            </p>
+          <p>
+            <label><b>Primary Industry</b></label>
+            <label name="primaryIndustry" id="primaryIndustry">Information Technology</label>
+          
+          </p>
+          <p>
+            <label><b>Business Experience in Yrs</b></label>
+            <label name="busExp" id="busExp">8</label>
+            </p>
+          
+            
+            <p class="full">
+            <label><b>Website</b></label>
+            <label name="website1" id="website1">www.referConnect.com</label>
+          </p>
+            <p class="full">
+                <label><b>Area in which You had gain Expertise In </b></label>
+            <label name="area" id="area">Software Development</label>
+          </p>
+           
+          <h3>Roles you played and your contribution </h3>
+             <p></p>
+             <p >
+            <label><b>Role Played</b></label>
+            <label name="rolePlayed" id="rolePlayed">Tech Head</label>
+          
+          </p>
+            <p>
+            <label><b>Your Company</b></label>
+            <label name="yourCompany" id="yourCompany">Impetus</label>
+
+            </p>
+           <p class="full">
+            <label><b>Your Contribution</b> </label>
+            <label name="contribution" id="contribution"> In Impetus I work as Trainee</label>
+          </p>
+
+           <h3>Professional Accomplishments </h3>
+             <p></p>
+            <p class="full">
+            <label> <b>Achivements You are proud of </b></label>
+            <label name="achiv" rows="5" id="achiv"> Oracle Java Certification</label>
+          </p>
+          <h3>Help </h3>
+             <p></p>
+          <p class="full">
+            <label><b>How would you like to help Startups </b>  </label>
+            <label name="help" id="help"> Help them to Solve their problem</label>
+          </p>
+           <p class="full">
+             <label><b>Mode of Connection </b>  </label> 
+            <label name="mode" id="mode">Physical Interaction</label>
+          </p>
+      
+
+  
+      <h3>Your current status </h3>
+      <p></p>
+       <p>
+            <label><b>City</b></label>
+            <label name="city" id="city">Pune</label>
+        </p>
+        <p>
+            <label><b>State</b></label>
+            <label name="state" id="state">Maharashtra</label>
+        </p>
+        </form>
+          
+      </div>
+</div>
+   
+    
+    
+    <script type="text/javascript">
+
+        var userRef = localStorage['userIndexRef'];
+        
+        
+        
+        retriveData();
+        
+        function retriveData(){				
+            var database = firebase.database();
+            var ref = database.ref('Expert');
+            ref.on('value',displayData, errorData);
+        }
+			
+        function displayData(data){
+			//firebase data
+			var ExpertRegistration = data.val();
+			var keys = Object.keys(ExpertRegistration);
+            console.log(keys );
+            
+            document.getElementById("name").innerHTML =  ExpertRegistration[userRef].name;
+            
+		}
+		function errorData(err){
+            console.log('ERROR!');
+            console.log(err);
+		}
+    </script>
+    
+</body>
+</html> 

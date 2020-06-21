@@ -1,0 +1,178 @@
+
+<html>
+
+	<head>
+		<title>Login</title>
+		
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-database.js"></script>
+		
+		
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+			 https://firebase.google.com/docs/web/setup#available-libraries -->
+
+		     <script>
+				// Your web app's Firebase configuration
+				var firebaseConfig = {
+		  apiKey: "AIzaSyC9gZb6k_hr0GQZ5R6_HD5GjBPJ0hp-89Y",
+		  authDomain: "first-7ff12.firebaseapp.com",
+		  databaseURL: "https://first-7ff12.firebaseio.com",
+		  projectId: "first-7ff12",
+		  storageBucket: "first-7ff12.appspot.com",
+		  messagingSenderId: "40178589862",
+		  appId: "1:40178589862:web:1c0f197155b36276049467"
+		};
+		firebase.initializeApp(firebaseConfig);
+		</script>
+		
+		<style>
+			body {
+				background-color: #f0f0f2;
+				margin: 0;
+				padding: 0;		
+				font-family: cursive sans-serif;
+                font-style: italic;
+				font-size:18px;
+				background-image: url('lock.jpg');
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+		
+			.outer{
+				width: 350px;
+				margin: 10em auto;
+				padding: 5em;
+				background-color: #ffffff;
+				border-radius: 0.5em;
+				box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+			}
+			
+            input{
+                font-family: cursive;
+                font-style: italic;
+                height: 25px;
+                width: 200px;
+                padding: 5px;
+                font-size: 14px;
+                border-radius: 5px;
+                border:1px solid grey;
+            }
+            label{
+                position: relative;
+                top: 5px;
+                float: left;
+                width:  150px;
+            }
+            #wrapper{
+                width: 500px;
+                margin: 0 auto;
+                
+            }
+            .formElement{
+                margin-bottom: 10px;
+            }
+			
+            #submitButton{
+                position: relative;
+                top: 10px;
+                width: 100px;
+                height: 30px;
+                margin-left: 110px;
+            }
+            a{
+                position: relative;
+                top: 10px;
+                width: 100px;
+                height: 30px;
+                margin-left: 110px;
+            }
+		</style>
+		
+	</head>
+	<body>
+	
+		
+		<div class='outer'>
+			
+			<div id="wrapper">
+            
+            <div class="formElement">
+                <label>User Name</label>
+                <input type="text" id="username" placeholder="eg. 9898989898">
+            </div>
+            
+            <div class="formElement">
+                <label>Password</label>
+                <input type="password" name="password" id="password">    
+            </div>
+            
+            <div class="formElement">
+                <input type="submit" id="submitButton" value="Sign up" onclick="retriveData();">
+            </div>
+            
+            <div class="formElement">
+                <a href="Startup Register/StartupReg.html">Create Account</a>    
+            </div>    
+                
+        </div>
+		</div>
+        
+        
+        
+        
+		<script>
+		
+			function retriveData()
+			{				
+				var database = firebase.database();
+				
+				var ref = database.ref('StartupRegistration');
+				ref.on('value',getData, errorData);
+			}
+			
+			function getData(data){
+				//console.log(data.val());
+				
+				// all keys
+				// User data
+				var inputUsername = document.getElementById("username").value;
+				var inputPassword = document.getElementById("password").value;
+
+				//firebase data
+				var StartupRegistration = data.val();
+				var keys = Object.keys(StartupRegistration);
+				console.log(keys );
+				
+				
+				var correctUser = 0;
+				for (var i=0;i<keys.length;i++){
+					var k = keys[i];
+					var mobile = StartupRegistration[k].mobile;
+					var password = StartupRegistration[k].password;
+					console.log(mobile ,password );
+					if(inputUsername==mobile && inputPassword==password ){
+						correctUser = 1;
+						break;
+					}
+				}
+				
+				if (correctUser == 1){
+					alert("Login successful");
+				}
+				else{
+					alert("Login failed");
+				}
+			}
+			function errorData(err){
+				console.log('ERROR!');
+				console.log(err);
+			}
+		
+		
+		</script>
+	
+	</body>
+
+</html>

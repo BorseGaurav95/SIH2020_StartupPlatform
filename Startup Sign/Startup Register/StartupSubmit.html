@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Startup Details</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="style.css">
+
+
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-database.js"></script>
+		
+  	<!-- TODO: Add SDKs for Firebase products that you want to use
+			 https://firebase.google.com/docs/web/setup#available-libraries -->
+       <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+  apiKey: "AIzaSyC9gZb6k_hr0GQZ5R6_HD5GjBPJ0hp-89Y",
+  authDomain: "first-7ff12.firebaseapp.com",
+  databaseURL: "https://first-7ff12.firebaseio.com",
+  projectId: "first-7ff12",
+  storageBucket: "first-7ff12.appspot.com",
+  messagingSenderId: "40178589862",
+  appId: "1:40178589862:web:1c0f197155b36276049467"
+};
+firebase.initializeApp(firebaseConfig);
+</script>
+
+
+</head>
+<body>
+  <div class="container">
+    <h1 class="brand"><span>STARTUP </span> REGISTER</h1>
+    <div class="wrapper">
+      <div class="company-info">
+       
+        <img src="a.jfif">
+         <img src="a.jfif">
+      </div>
+      <div class="contact">
+        <h3>TELL US MORE </h3>
+        <div class="alert">Your message has been sent</div>
+        <form id="contactForm" action="..\login.html">
+          <p>
+            <label>Company Name</label>
+            <input type="text" name="companyName" id="companyName" required>
+          </p>
+          <p>
+            <label>What are you looking For</label>
+            <select class="form-control"  name="lookingFor" id="lookingFor">
+                <option>Expert</option>
+                <option>Expert+Funding</option>
+              </select>
+          </p>
+          <p>
+            <label><i class="fa fa-envelope"></i> Email Address</label>
+            <input type="email" name="email" id="email" required>
+          </p>
+          <p>
+            <label><i class="fa fa-phone"></i> Phone Number</label>
+            <input type="text" name="phone" id="phone">
+          </p>
+            
+            
+            <p>
+            <label>Website</label>
+            <input type="text" name="website" id="website" required>
+          </p>
+          <p>
+            <label>Industry</label>
+            <select class="form-control"  name="industry" id="industry">
+                <option>Automobiles</option>
+                <option>Information Technology</option>
+                <option>Financial Services</option>
+                <option>Internet</option>
+                <option>E COMMERCE</option>
+                <option>Design</option>
+                <option>Consumer Products</option>
+                
+              </select>
+          
+          </p>
+          <p class="full">
+            <label>Product / Service Summary</label>
+            <textarea name="serviceSummary" rows="5" id="serviceSummary"></textarea>
+          </p>
+          <h3>More Information About Your StartUp </h3>
+             <p></p>
+             <p>
+            <label>Year of Incorparation(dd/mm/yyy)</label>
+            <input type="text" name="date" id="date" required>
+            </p>
+            <p>
+            <label>Annual Revenue (Rs)</label>
+            <input type="text" name="annualRevenue" id="annualRevenue" required>
+            </p>
+            <p>
+            <label>Team Size</label>
+            <input type="number" name="teamSize" id="teamSize" required>
+            </p>
+            <p>
+            <label>Area Where You Want a Expert In </label>
+            <select class="form-control"  name="area" id="area">
+                <option>Business Plan /Modelling</option>
+                <option>Sales and Marketing>
+                <option>Online Pramotion</option>
+                <option>Financial Consulting</option>
+                <option>Cloud</option>
+                <option>Mobile</option>
+                <option>Software Development</option>
+                
+                <option>Testing/Beta</option>
+                <option>Product Management</option>
+                <option>Public Speaking</option>
+                <option>Data Science</option>
+                <option>Block Chain</option>
+                <option>IOT</option>
+                <option>Software Development</option>
+                
+                
+              </select>
+          
+          </p>
+           <h3>Tell us about the founders </h3>
+             <p></p>
+            <p>
+            <label>Your Role</label>
+            <select class="form-control"  name="industry" id="role">
+                <option>Founder</option>
+                <option>CEO</option>
+                <option>Tech Head</option>
+                <option>Business Head</option>
+                <option>Marketing Head</option>
+                <option>Other</option>
+                   
+              </select>
+          
+          </p>
+           
+            <p>
+            <label>Your Experience</label>
+            <input type="number" name="exp" id="exp" required>
+            </p>
+            <p class="full">
+            <label>Founder Name</label>
+            <input type="text" name="founderName" id="founderName" required>
+          </p>
+         <p class="full">
+            <label>Description</label>
+            <textarea name="des" rows="5" id="des"></textarea>
+          </p>
+            
+          <p class="full">
+            <button  type="submit" value="Submit" onclick="save_user();">Submit</button> 
+          </p>
+        </form>
+          
+      </div>
+    </div>
+  </div>
+
+  <script>
+	  
+		var databaseRef = firebase.database().ref('/StartupRegistration/');
+		function save_user()
+    {
+
+  
+    var name=localStorage["name"];
+		var mailId=localStorage["mailid"];
+		var mobile=localStorage["mobile"];
+		var password=localStorage["password"];
+		var	confirmPassword=localStorage["cpassword"];
+
+
+    
+		var companyName=document.getElementById('companyName').value;	
+    var lookingFor=document.getElementById('lookingFor').value;
+    var website=document.getElementById('website').value;
+    var phone=document.getElementById('phone').value;
+    var industry=document.getElementById('industry').value;
+    //var achivserviceSummary=document.getElementById('achivserviceSummary').value;
+    var date=document.getElementById('date').value;
+    var annualRevenue=document.getElementById('annualRevenue').value;
+    var teamSize=document.getElementById('teamSize').value;
+    var area=document.getElementById('area').value;
+    var role=document.getElementById('role').value;
+    var exp=document.getElementById('exp').value;
+    var date=document.getElementById('date').value;
+    var date=document.getElementById('date').value;
+    var founderName=document.getElementById('founderName').value;
+    var des=document.getElementById('des').value;
+
+
+
+			var uid = firebase.database().ref().child('StartupRegistartion/').push().key;
+			/*
+  	
+			
+			var data = {
+				
+				name:name,
+				mailId:mailId,
+				mobile:mobile,
+				password:password,
+				confirmPassword:confirmPassword,
+				companyName:compan`yName,
+				lookingFor:lookingFor,
+				email:email,
+				phone:phone,
+				website:website,
+				industry:industry,
+				//achivserviceSummary:achivserviceSummary,
+				date:date,
+				annualRevenue:annualRevenue,
+				teamSize:teamSize,
+        area:area,
+        role:role,
+        exp:exp,
+        founderName:founderName,
+        des:des
+			}
+
+*/
+      var databaseRef = firebase.database().ref('/StartupRegistration/');
+       databaseRef.child(phone).set({
+        name:name,
+				mailId:mailId,
+				mobile:mobile,
+				password:password,
+				confirmPassword:confirmPassword,
+				companyName:companyName,
+				lookingFor:lookingFor,
+				email:email,
+				phone:phone,
+				website:website,
+				industry:industry,
+				//achivserviceSummary:achivserviceSummary,
+				date:date,
+				annualRevenue:annualRevenue,
+				teamSize:teamSize,
+        area:area,
+        role:role,
+        exp:exp,
+        founderName:founderName,
+        des:des
+       }); 
+
+
+
+		  /* 
+			var updates = {};
+			updates['/StartupRegistration/' + uid] = data;
+			firebase.database().ref().update(updates);
+			*/
+      //location.href = "..\index.html";
+          
+					}
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Startup Details</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="style.css">
+
+
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-database.js"></script>
+		
+		
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+			 https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCaDuQs2-vRJ6F3YwjJhizx1GltmknXF1w",
+        authDomain: "webproject-95100.firebaseapp.com",
+        databaseURL: "https://webproject-95100.firebaseio.com",
+        projectId: "webproject-95100",
+        storageBucket: "webproject-95100.appspot.com",
+        messagingSenderId: "323873543402",
+        appId: "1:323873543402:web:6d067d32c6db1fa94c3393"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+
+
+</head>
+<body>
+  <div class="container">
+    <h1 class="brand"><span>STARTUP </span> REGISTER</h1>
+    <div class="wrapper">
+      <div class="company-info">
+       
+        <img src="a.jfif">
+         <img src="a.jfif">
+      </div>
+      <div class="contact">
+        <h3>PROFESSIONAL  DETAILS </h3>
+        <div class="alert">Your message has been sent</div>
+        <form id="contactForm" action="..\login.html">
+          <p>
+            <label>Primary Industry</label>
+            <select class="form-control"  name="primaryIndustry" id="primaryIndustry">
+                <option>Automobiles</option>
+                <option>Information Technology</option>
+                <option>Financial Services</option>
+                <option>Internet</option>
+                <option>E COMMERCE</option>
+                <option>Design</option>
+                <option>Consumer Products</option>
+                
+              </select>
+          
+          </p>
+          <p>
+            <label>Business Experience</label>
+            <input type="number" name="busExp" id="busExp" required>
+            </p>
+          
+            
+            <p class="full">
+            <label>Website</label>
+            <input type="text" name="website1" id="website1" required>
+          </p>
+           
+          <h3>Roles you played and your contribution </h3>
+             <p></p>
+             <p >
+            <label>Role Played</label>
+            <select class="form-control"  name="rolePlayed" id="rolePlayed">
+                <option>Founder</option>
+                <option>CEO</option>
+                <option>Tech Head</option>
+                <option>Business Head</option>
+                <option>Marketing Head</option>
+                <option>Other</option>
+                
+              </select>
+          
+          </p>
+            <p>
+            <label>Your Company</label>
+            <input type="text" name="yourCompany" id="yourCompany" required>
+            </p>
+           <p class="full">
+            <label> Your Contribution</label>
+            <textarea name="contribution" rows="5" id="contribution"></textarea>
+          </p>
+            
+          <!--
+            <p>
+            <label>Area Where You Want a Expert In </label>
+            <select class="form-control"  name="area" id="area">
+                <option>Business Plan /Modelling</option>
+                <option>Sales and Marketing>
+                <option>Online Pramotion</option>
+                <option>Financial Consulting</option>
+                <option>Cloud</option>
+                <option>Mobile</option>
+                <option>Software Development</option>
+                
+                <option>Testing/Beta</option>
+                <option>Product Management</option>
+                <option>Public Speaking</option>
+                <option>Data Science</option>
+                <option>Block Chain</option>
+                <option>IOT</option>
+                <option>Software Development</option>
+                
+                
+              </select>
+          
+          </p>
+              -->
+           <h3>Professional Accomplishments </h3>
+             <p></p>
+            <p class="full">
+            <label> Achivements You are proud of </label>
+            <textarea name="achiv" rows="5" id="achiv1"></textarea>
+          </p>
+          <h3>Help </h3>
+             <p></p>
+          <p class="full">
+            <label> How would you like to help Startups  </label>
+            <textarea name="help" rows="5" id="help"></textarea>
+          </p>
+         
+    <input type="checkbox" name="vehicle" value="Mail"  >Mail
+    <input type="checkbox" name="vehicle" value="Phone" checked>Phone
+    <input type="checkbox" name="vehicle" value="Bike"> Physical Interactive
+    <input type="checkbox" name="vehicle" value="Car"> All of Above<br>
+  
+      <h3>Your current status </h3>
+      <p></p>
+       <p>
+            <label>City</label>
+            <input type="text" name="city" id="city" required>
+        </p>
+        <p>
+            <label>State</label>
+            <input type="text" name="state" id="state" required>
+        </p>
+           
+         
+          <p class="full">
+            <input type="submit" value="submit" onclick="update_user()">
+          </p>
+        </form>
+          
+      </div>
+    </div>
+  </div>
+
+  <script>
+	  
+		var databaseRef = firebase.database().ref('/Expert/');
+		function update_user(){
+			
+			var primaryIndustry = document.getElementById('primaryIndustry').value;
+			var busExp = document.getElementById('busExp').value;
+			var website1 = document.getElementById('website1').value;
+			var rolePlayed = document.getElementById('rolePlayed').value;
+			var yourCompany = document.getElementById('yourCompany').value;
+			var contribution = document.getElementById('contribution').value;
+			var achiv = document.getElementById('achiv1').value;
+			var help = document.getElementById('help').value; 
+			var city = document.getElementById('city').value;
+			var state = document.getElementById('state').value;
+			
+			var name = localStorage["name"];
+			var mailId = localStorage["mailId"];
+			var	mobile = localStorage["mobile"];
+			var password = localStorage["password"];
+			var confirmPassword = localStorage["confirmPassword"];
+			alert("get");
+      var databaseRef=firebase.database().ref('/Expert/');
+      alert(mobile);
+			databaseRef.child(mobile).set({
+				
+				name:name,
+				mailId:mailId,
+				mobile:mobile,
+				password:password,
+				confirmPassword:confirmPassword,
+
+				primaryIndustry:primaryIndustry,
+				busExp:busExp,
+				website1:website1,
+				rolePlayed:rolePlayed,
+				yourCompany:yourCompany,
+				contribution:contribution,
+				achiv:achiv,
+				help:help,
+				city:city,
+				state:state
+				
+			});
+      
+    alert("final");
+    }
+	</script>
+
+</body>
+</html>

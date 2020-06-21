@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+    
+</style>
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <div class = "container">
+          <!--Footer Header-->
+          <div class = "row ftr-header">
+              <div class = "col-md-4"><h2>Profile</h2></div>
+              <div class = "col-md-8"><h2>Right</h2></div>
+          </div>
+          <!--Footer Header-->
+          <!--Footer Description-->
+          <div class = "row ftr-des">
+              <div class = "col-md-4">
+                  <div class="sidenav">
+                  <a href="#about">About</a>
+                  <a href="#services">Services</a>
+                  <a href="#clients">Clients</a>
+                  <a href="#contact">Contact</a>
+                </div>
+                 
+                  
+              </div>
+              
+              
+                 <div class="main">
+                <div class="contact">
+                                <h3>Profile Inforamation</h3>
+                                <div class="alert">Your message has been sent</div>
+                                <form id="contactForm">
+                                  <p>
+                                    <label>Company Name</label>
+                                    <input type="text" name="companyName" id="companyName" required>
+                                  </p>
+                                  <p>
+                                    <label>What are you looking For</label>
+                                    <select class="form-control"  name="lookingFor" id="lookingFor">
+                                        <option>Expert</option>
+                                        <option>Expert+Funding</option>
+                                      </select>
+                                  </p>
+                                  <p>
+                                    <label><i class="fa fa-envelope"></i> Email Address</label>
+                                    <input type="email" name="email" id="email" required>
+                                  </p>
+                                  <p>
+                                    <label><i class="fa fa-phone"></i> Phone Number</label>
+                                    <input type="text" name="phone" id="phone">
+                                  </p>
+
+
+                                    <p>
+                                    <label>Website</label>
+                                    <input type="text" name="website" id="website" required>
+                                  </p>
+                                  <p>
+                                    <label>Industry</label>
+                                    <select class="form-control"  name="industry" id="industry">
+                                        <option>Automobiles</option>
+                                        <option>Information Technology</option>
+                                        <option>Financial Services</option>
+                                        <option>Internet</option>
+                                        <option>E COMMERCE</option>
+                                        <option>Design</option>
+                                        <option>Consumer Products</option>
+
+                                      </select>
+
+                                  </p>
+                                  <p class="full">
+                                    <label>Product / Service Summary</label>
+                                    <textarea name="serviceSummary" rows="5" id="serviceSummary"></textarea>
+                                  </p>
+                                  <h3>More Information About Your StartUp </h3>
+                                     <p></p>
+                                     <p>
+                                    <label>Year of Incorparation(dd/mm/yyy)</label>
+                                    <input type="text" name="date" id="date" required>
+                                    </p>
+                                    <p>
+                                    <label>Annual Revenue (Rs)</label>
+                                    <input type="text" name="annualRevenue" id="annualRevenue" required>
+                                    </p>
+                                    <p>
+                                    <label>Team Size</label>
+                                    <input type="number" name="teamSize" id="teamSize" required>
+                                    </p>
+                                    <p>
+                                    <label>Area Where You Want a Expert In </label>
+                                    <select class="form-control"  name="area" id="area">
+                                        <option>Business Plan /Modelling</option>
+                                        <option>Sales and Marketing>
+                                        <option>Online Pramotion</option>
+                                        <option>Financial Consulting</option>
+                                        <option>Cloud</option>
+                                        <option>Mobile</option>
+                                        <option>Software Development</option>
+
+                                        <option>Testing/Beta</option>
+                                        <option>Product Management</option>
+                                        <option>Public Speaking</option>
+                                        <option>Data Science</option>
+                                        <option>Block Chain</option>
+                                        <option>IOT</option>
+                                        <option>Software Development</option>
+
+
+                                      </select>
+
+                                  </p>
+                                   <h3>Tell us about the founders </h3>
+                                     <p></p>
+                                    <p>
+                                    <label>Your Role</label>
+                                    <select class="form-control"  name="industry" id="industry">
+                                        <option>Founder</option>
+                                        <option>CEO</option>
+                                        <option>Tech Head</option>
+                                        <option>Business Head</option>
+                                        <option>Marketing Head</option>
+                                        <option>Other</option>
+
+                                      </select>
+
+                                  </p>
+
+                                    <p>
+                                    <label>Your Experience</label>
+                                    <input type="number" name="exp" id="exp" required>
+                                    </p>
+                                    <p class="full">
+                                    <label>Founder Name</label>
+                                    <input type="text" name="founderName" id="founderName" required>
+                                  </p>
+                                 <p class="full">
+                                    <label>Description</label>
+                                    <textarea name="des" rows="5" id="des"></textarea>
+                                  </p>
+
+                                  <p class="full">
+                                    <button type="submit">Submit</button>
+                                  </p>
+                                </form>
+
+                              </div>
+                  
+                </div>
+              
+              
+            
+              
+              
+          </div>
+     
+              
+          </div>
+
+
+   
+</body>
+</html> 
